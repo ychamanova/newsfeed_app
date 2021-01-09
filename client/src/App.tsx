@@ -1,6 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
+import { Header } from './components/Header';
 
 function App() {
   const [data, setData] = React.useState('');
@@ -12,13 +14,7 @@ function App() {
   };
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={getData}>Click Me For Data</button>
-        {data}
-      </header>
+      <Header />
     </div>
   );
 }
