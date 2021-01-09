@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import './styles.css';
 
 export const NewsCollection = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   return (
-    <div>
+    <div className='NewsCollection'>
       <ButtonGroup
         variant='text'
         color='primary'
@@ -17,6 +19,17 @@ export const NewsCollection = () => {
         <Button>Technology</Button>
         <Button>Design</Button>
       </ButtonGroup>
+      <form>
+        <label>
+          Search Articles
+          <input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            type='text'
+          />
+        </label>
+        <input type='submit' value='Submit' />
+      </form>
     </div>
   );
 };

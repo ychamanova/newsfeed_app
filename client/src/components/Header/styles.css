@@ -4,8 +4,7 @@
 .header-top {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: rgb(3, 13, 43);
-  border-bottom: rgb(78, 1, 5) solid 2vmin;
+  background-color: rgb(3, 5, 12);
   padding-top: 2vmin;
 }
 
@@ -18,24 +17,12 @@
   font-size: 8vmin;
 }
 
-.header-search {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  color: orange;
-  font-size: 3vmin;
-}
-
-.header-search-input {
-  margin-left: 3vmin;
-  margin-top: 5vmin;
-}
 .header-slogan {
   padding: 5vmin;
-  background-color: rgb(2, 3, 19);
+  background-color: rgb(26, 26, 26);
   color: rgb(255, 255, 255);
   font-family: 'Noto Serif', serif;
   text-transform: uppercase;
-
 }
 
 .header-slogan-large {
