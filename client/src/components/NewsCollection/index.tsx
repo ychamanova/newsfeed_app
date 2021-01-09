@@ -4,10 +4,44 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './styles.css';
 import { categories } from './categories';
 
+interface Items {
+  url: string;
+  title: string;
+  abstract: string;
+  media: Media[];
+}
+
+interface Media {
+  type: string;
+  caption: string;
+  'media-metadata': MediaMeta[];
+}
+
+interface MediaMeta {
+  url: string;
+  height: number;
+  width: number;
+}
+
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const [category, setCategory] = useState(categories.popularToday);
+
+  const [newsItems, setNewsItems] = useState<Items[]>([]);
+
+  const getNews = (category: string) => {
+    fetch(`/news/${category}`).then((data) =>
+      data.json().then((converted) => {
+        console.log(converted);
+        setNewsItems(converted);
+      })
+    );
+  };
+
+  React.useEffect(() => {
+    getNews(category);
+  }, [category]);
 
   return (
     <div className='NewsCollection'>
