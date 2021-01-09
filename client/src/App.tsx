@@ -1,4 +1,5 @@
 import React from 'react';
+import { NewsCollection } from './components/NewsCollection';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className='App'>
       <Header />
+      <NewsCollection />
     </div>
   );
 }
