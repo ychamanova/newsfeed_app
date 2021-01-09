@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState('');
 
   const getData = () => {
     fetch('/api')
@@ -11,8 +11,8 @@ function App() {
       .then((res) => setData(res));
   };
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className='App'>
+      <header className='App-header'>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
