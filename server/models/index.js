@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { NYTimesKey } = require('../config');
+const { NYTimesKey } = require('../keys');
 
 module.exports = {
   news: {
