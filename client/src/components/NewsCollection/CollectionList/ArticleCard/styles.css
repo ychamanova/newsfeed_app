@@ -2,6 +2,12 @@
   padding: 4vmin;
 }
 
-.Card :hover {
-  cursor: pointer;
+.card-abstract {
+  height: 100%; overflow: auto;
+  padding: 4vmin;
 }
+
+.card-readmore {
+  margin: 5vmin;
+}
+

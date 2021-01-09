@@ -2,7 +2,8 @@
 .collection-list-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
+  margin-left: 5vmin;
 }
 
 .collection-list-item {
