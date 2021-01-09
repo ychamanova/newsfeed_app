@@ -3,32 +3,16 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './styles.css';
 import { categories } from './categories';
+import { CollectionList } from './CollectionList';
 
-interface Items {
-  url: string;
-  title: string;
-  abstract: string;
-  media: Media[];
-}
-
-interface Media {
-  type: string;
-  caption: string;
-  'media-metadata': MediaMeta[];
-}
-
-interface MediaMeta {
-  url: string;
-  height: number;
-  width: number;
-}
+import { Article } from '../../types';
 
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const [category, setCategory] = useState(categories.popularToday);
 
-  const [newsItems, setNewsItems] = useState<Items[]>([]);
+  const [newsItems, setNewsItems] = useState<Article[]>([]);
 
   const getNews = (category: string) => {
     fetch(`/news/${category}`).then((data) =>
@@ -44,7 +28,7 @@ export const NewsCollection = () => {
   }, [category]);
 
   return (
-    <div className='NewsCollection'>
+    <main role='main' className='NewsCollection'>
       <ButtonGroup
         variant='text'
         color='primary'
@@ -68,6 +52,9 @@ export const NewsCollection = () => {
         </label>
         <input type='submit' value='Submit' />
       </form>
-    </div>
+      <div className='news-collection-container'>
+        <CollectionList articlesArray={newsItems} />
+      </div>
+    </main>
   );
 };
