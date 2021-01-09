@@ -1,9 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-.Header {
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:wght@700&display=swap');
+
+
+.header-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: rgb(3, 13, 43);
+  border-bottom: rgb(78, 1, 5) solid 2vmin;
+  padding-top: 2vmin;
+}
+
+.header-logo {
+  margin-left: 5;
+  grid-column-start: 1;
+  grid-column-end: 2;
   color: orange;
   font-family: 'Anton', sans-serif;;
   font-size: 8vmin;
-  background-color: rgb(3, 13, 43);
-  border-bottom: rgb(78, 1, 5) solid 5px;
-  padding-top: 2vmin;
+}
+
+.header-search {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  color: orange;
+  font-size: 3vmin;
+}
+
+.header-search-input {
+  margin-left: 3vmin;
+  margin-top: 5vmin;
+}
+.header-slogan {
+  padding: 5vmin;
+  background-color: rgb(2, 3, 19);
+  color: rgb(255, 255, 255);
+  font-family: 'Noto Serif', serif;
+  text-transform: uppercase;
+
+}
+
+.header-slogan-large {
+  font-size: 7vmin;
+}
+.header-slogan-small {
+  font-size: 3vmin;
 }
