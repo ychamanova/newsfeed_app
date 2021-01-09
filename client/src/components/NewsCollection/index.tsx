@@ -7,7 +7,7 @@ import { categories } from './categories';
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [category, setCategory] = useState<string>(categories.popularToday);
+  const [category, setCategory] = useState(categories.popularToday);
 
   return (
     <div className='NewsCollection'>
