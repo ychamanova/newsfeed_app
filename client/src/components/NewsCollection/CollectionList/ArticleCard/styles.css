@@ -1,0 +1,7 @@
+.Card {
+  padding: 4vmin;
+}
+
+.Card :hover {
+  cursor: pointer;
+}

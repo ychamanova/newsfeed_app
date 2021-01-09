@@ -10,9 +10,11 @@ interface Props {
 
 export const CollectionList: React.FC<Props> = ({ articlesArray }) => {
   return (
-    <div>
+    <div className='collection-list-container'>
       {articlesArray.map((a) => (
-        <ArticleCard title={a.title} url={a.url} abstract={a.abstract} />
+        <article className='collection-list-item'>
+          <ArticleCard title={a.title} url={a.url} abstract={a.abstract} />
+        </article>
       ))}
     </div>
   );

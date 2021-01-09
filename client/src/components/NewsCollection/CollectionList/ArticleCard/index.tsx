@@ -10,10 +10,12 @@ interface Props {
 
 export const ArticleCard: React.FC<Props> = ({ title, url, abstract }) => {
   return (
-    <Card>
-      <h2>{title}</h2>
-      <div>{abstract}</div>
-      <div> Link: {url}</div>
-    </Card>
+    <button>
+      <Card className='Card'>
+        <h2>{title}</h2>
+        <div>{abstract}</div>
+        <div> Link: {url}</div>
+      </Card>
+    </button>
   );
 };

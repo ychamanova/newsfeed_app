@@ -3,11 +3,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 10vmin;
 }
 
 .collection-list-item {
-  width: 10vmin;  /* Or whatever */
-  height: 10vmin; /* Or whatever */
-  margin: auto;  /* Magic! */
+  align-self: auto;
+  width: 25%;
+  margin: 3vmin;
+  height: 30%;
 }
