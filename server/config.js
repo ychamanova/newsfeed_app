@@ -1,3 +1,3 @@
 module.exports = {
-  NYTimesKey: 'EwNmCCJoUbmuOJ48JLCkf1ZwgqCC1ZLH',
+  NYTimesKey: 'QQYDIrJGGi5IgCqHdxQOLi9Qx2N0KA3e',
 };
