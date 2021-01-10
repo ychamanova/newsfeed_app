@@ -8,6 +8,5 @@
 .search-list-item {
   align-self: auto;
   width: 25%;
-  margin: 3vmin;
-  height: 30%;
+  margin-bottom: 10vmin;
 }

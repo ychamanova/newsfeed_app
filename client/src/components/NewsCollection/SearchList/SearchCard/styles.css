@@ -1,0 +1,10 @@
+.search-card-main {
+  text-align: left;
+  height: 100%; 
+  overflow: auto;
+  padding: 4vmin;
+}
+
+.search-card-readmore {
+  margin: 5vmin;
+}

@@ -16,12 +16,12 @@ interface Props {
 
 export const ArticleCard: React.FC<Props> = ({ title, url, abstract }) => {
   return (
-    <Card className='Card card-abstract'>
+    <Card className='article-card-abstract'>
       <h1>{title}</h1>
       <br />
       {abstract}
       <br />
-      <Accordion className='card-readmore'>
+      <Accordion className='article-card-readmore'>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls='panel1a-content'

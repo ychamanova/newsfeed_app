@@ -2,12 +2,12 @@
   padding: 4vmin;
 }
 
-.card-abstract {
+.article-card-abstract {
   height: 100%; 
   overflow: auto;
   padding: 4vmin;
 }
 
-.card-readmore {
+.article-card-readmore {
   margin: 5vmin;
 }

@@ -8,6 +8,12 @@ import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { Article, SearchItem } from '../../types';
 
+const fetchSearchResults = async (searchTerm: string) => {
+  const data = await fetch(`/search?searchTerm=${searchTerm}`);
+  const converted = await data.json();
+  return converted.docs;
+};
+
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState(categories.popularToday);
@@ -21,12 +27,6 @@ export const NewsCollection = () => {
     const results = await fetchSearchResults(term);
     setSearchItems(results);
     setLoading(false);
-  };
-
-  const fetchSearchResults = async (searchTerm: string) => {
-    const data = await fetch(`/search?searchTerm=${searchTerm}`);
-    const converted = await data.json();
-    return converted.docs;
   };
 
   const getNews = (category: string) => {

@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { OpenInNew } from '@material-ui/icons';
 
+import './styles.css';
+
 interface Props {
   abstract: string;
   snippet: string;
@@ -20,12 +22,12 @@ export const SearchCard: React.FC<Props> = ({
   lead_paragraph,
 }) => {
   return (
-    <Card className='Card card-abstract'>
+    <Card className='search-card-main'>
       <h1>{snippet}</h1>
       <br />
       {abstract}
       <br />
-      <Accordion className='card-readmore'>
+      <Accordion className='search-card-readmore'>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls='panel1a-content'
