@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './styles.css';
 import { categories } from './categories';
-import { CollectionList } from './CollectionList';
+import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { Article, SearchItem } from '../../types';
 
@@ -79,7 +79,7 @@ export const NewsCollection = () => {
       </form>
       <div className='news-collection-container'>
         {category !== 'search' ? (
-          <CollectionList articlesArray={newsItems} />
+          <ArticleList articlesArray={newsItems} />
         ) : (
           <SearchList searchItems={searchItems} />
         )}

@@ -8,11 +8,11 @@ interface Props {
   articlesArray: Article[];
 }
 
-export const CollectionList: React.FC<Props> = ({ articlesArray }) => {
+export const ArticleList: React.FC<Props> = ({ articlesArray }) => {
   return (
-    <div className='collection-list-container'>
+    <div className='article-list-container'>
       {articlesArray.map((a) => (
-        <article className='collection-list-item'>
+        <article className='article-list-item'>
           <ArticleCard
             key={a.url}
             title={a.title}
