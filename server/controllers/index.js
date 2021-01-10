@@ -11,5 +11,18 @@ module.exports = {
         }
       });
     },
-  }
+
+    getWeek: (req, res) => {
+      models.news.getWeek((err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.json(results);
+        }
+      });
+    },
+  },
+
+
+
 }

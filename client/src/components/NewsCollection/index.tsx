@@ -35,8 +35,12 @@ export const NewsCollection = () => {
         aria-label='outlined primary button group'
       >
         <Button>Latest News</Button>
-        <Button>Popular Today</Button>
-        <Button>Popular in the Last Week</Button>
+        <Button onClick={(e) => setCategory(categories.popularToday)}>
+          Popular Today
+        </Button>
+        <Button onClick={(e) => setCategory(categories.popularWeek)}>
+          Popular in the Last Week
+        </Button>
         <Button>Arts</Button>
         <Button>Technology</Button>
         <Button>Design</Button>

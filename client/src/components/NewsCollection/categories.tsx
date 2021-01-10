@@ -1,5 +1,5 @@
 export const categories = {
-  popularToday: 'POPULAR1',
-  popularWeek: 'POPULAR7',
-  search: 'SEARCH',
+  popularToday: 'today',
+  popularWeek: 'thisWeek',
+  search: 'search',
 };
