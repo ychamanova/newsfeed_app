@@ -4,7 +4,8 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './styles.css';
 import { categories } from './categories';
 import { CollectionList } from './CollectionList';
-import { Article } from '../../types';
+import { SearchList } from './SearchList';
+import { Article, SearchItem } from '../../types';
 
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,12 +14,14 @@ export const NewsCollection = () => {
 
   const [newsItems, setNewsItems] = useState<Article[]>([]);
 
+  const [searchItems, setSearchItems] = useState<SearchItem[]>([]);
+
   const [searchMode, setSearchMode] = useState(false);
 
   const getNews = (category: string) => {
     fetch(`/news/${category}`).then((data) =>
       data.json().then((converted) => {
-        console.log(converted);
+        setSearchMode(false);
         setNewsItems(converted);
       })
     );
@@ -27,7 +30,8 @@ export const NewsCollection = () => {
   const performSearch = (term: string) => {
     fetch(`/search?searchTerm=${searchTerm}`).then((data) => {
       data.json().then((converted) => {
-        console.log(converted.docs);
+        setSearchMode(true);
+        setSearchItems(converted.docs);
       });
     });
   };
@@ -73,7 +77,11 @@ export const NewsCollection = () => {
         />
       </form>
       <div className='news-collection-container'>
-        <CollectionList articlesArray={newsItems} />
+        {!searchMode ? (
+          <CollectionList articlesArray={newsItems} />
+        ) : (
+          <SearchList searchItems={searchItems} />
+        )}
       </div>
     </main>
   );

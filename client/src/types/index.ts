@@ -16,3 +16,10 @@ export interface MediaMeta {
   height: number;
   width: number;
 }
+
+export interface SearchItem {
+  abstract: string;
+  snippet: string;
+  web_url: string;
+  lead_paragraph: string;
+}
