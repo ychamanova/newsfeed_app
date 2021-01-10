@@ -4,7 +4,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import './styles.css';
 import { categories } from './categories';
 import { CollectionList } from './CollectionList';
-
 import { Article } from '../../types';
 
 export const NewsCollection = () => {
@@ -14,6 +13,8 @@ export const NewsCollection = () => {
 
   const [newsItems, setNewsItems] = useState<Article[]>([]);
 
+  const [searchMode, setSearchMode] = useState(false);
+
   const getNews = (category: string) => {
     fetch(`/news/${category}`).then((data) =>
       data.json().then((converted) => {
@@ -21,6 +22,14 @@ export const NewsCollection = () => {
         setNewsItems(converted);
       })
     );
+  };
+
+  const performSearch = (term: string) => {
+    fetch(`/search?searchTerm=${searchTerm}`).then((data) => {
+      data.json().then((converted) => {
+        console.log(converted.docs);
+      });
+    });
   };
 
   React.useEffect(() => {
@@ -38,7 +47,7 @@ export const NewsCollection = () => {
         <Button onClick={(e) => setCategory(categories.popularToday)}>
           Popular Today
         </Button>
-        <Button onClick={(e) => setCategory(categories.popularWeek)}>
+        <Button onClick={(e) => setCategory(categories.popularThisWeek)}>
           Popular in the Last Week
         </Button>
         <Button>Arts</Button>
@@ -54,7 +63,14 @@ export const NewsCollection = () => {
             type='text'
           />
         </label>
-        <input type='submit' value='Submit' />
+        <input
+          type='submit'
+          value='Submit'
+          onClick={(e) => {
+            e.preventDefault();
+            performSearch(searchTerm);
+          }}
+        />
       </form>
       <div className='news-collection-container'>
         <CollectionList articlesArray={newsItems} />

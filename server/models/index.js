@@ -30,5 +30,21 @@ module.exports = {
           cb(err);
         });
     },
-  }
+  },
+  search: {
+    getSearch: (term, cb) => {
+      axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${NYTimesKey}`, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response.data.response)
+          cb(null, response.data.response);
+        })
+        .catch((err) => {
+          cb(err);
+        });
+    },
+  },
 };

@@ -12,13 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('view engine', 'html');
 
-app.get('/api', (req, res) => {
-  res.send(`${new Date()}`);
-});
-
-app.get('/api/users', (req, res) => {
-  res.send(['Aang', 'Katara', 'Momo', 'Sokka', 'Appa']);
-});
+app.get('/search', controllers.search.getSearch);
 
 app.get('/news/today', controllers.news.getToday);
 app.get('/news/thisWeek', controllers.news.getWeek);
