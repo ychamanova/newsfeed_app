@@ -1,0 +1,13 @@
+.search-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-left: 5vmin;
+}
+
+.search-list-item {
+  align-self: auto;
+  width: 25%;
+  margin: 3vmin;
+  height: 30%;
+}

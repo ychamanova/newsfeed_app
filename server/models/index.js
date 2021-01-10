@@ -39,7 +39,6 @@ module.exports = {
         },
       })
         .then((response) => {
-          console.log(response.data.response)
           cb(null, response.data.response);
         })
         .catch((err) => {

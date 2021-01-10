@@ -3,7 +3,8 @@
 }
 
 .card-abstract {
-  height: 100%; overflow: auto;
+  height: 100%; 
+  overflow: auto;
   padding: 4vmin;
 }
 

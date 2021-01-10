@@ -31,7 +31,7 @@ export const NewsCollection = () => {
       })
     );
   };
-  //anytime category/search term changes, perform search
+  //anytime category changes, perform search
   React.useEffect(() => {
     if (category === 'search') {
       performSearch(searchTerm);

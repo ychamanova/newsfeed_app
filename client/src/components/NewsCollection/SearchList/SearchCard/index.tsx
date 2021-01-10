@@ -21,9 +21,9 @@ export const SearchCard: React.FC<Props> = ({
 }) => {
   return (
     <Card className='Card card-abstract'>
-      <h1>{abstract}</h1>
+      <h1>{snippet}</h1>
       <br />
-      {snippet}
+      {abstract}
       <br />
       <Accordion className='card-readmore'>
         <AccordionSummary

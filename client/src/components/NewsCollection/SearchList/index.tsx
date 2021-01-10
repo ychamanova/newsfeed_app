@@ -2,15 +2,17 @@ import React from 'react';
 import { SearchItem } from '../../../types';
 import { SearchCard } from './SearchCard';
 
+import './styles.css';
+
 interface Props {
   searchItems: SearchItem[];
 }
 
 export const SearchList: React.FC<Props> = ({ searchItems }) => {
   return (
-    <div>
+    <div className='search-list-container'>
       {searchItems.map((item) => (
-        <article>
+        <article className='search-list-item'>
           <SearchCard
             key={item.web_url}
             abstract={item.abstract}
