@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { Article } from '../../../types';
 import { ArticleCard } from './ArticleCard';
@@ -14,7 +13,12 @@ export const CollectionList: React.FC<Props> = ({ articlesArray }) => {
     <div className='collection-list-container'>
       {articlesArray.map((a) => (
         <article className='collection-list-item'>
-          <ArticleCard title={a.title} url={a.url} abstract={a.abstract} />
+          <ArticleCard
+            key={a.url}
+            title={a.title}
+            url={a.url}
+            abstract={a.abstract}
+          />
         </article>
       ))}
     </div>

@@ -12,6 +12,7 @@ export const SearchList: React.FC<Props> = ({ searchItems }) => {
       {searchItems.map((item) => (
         <article>
           <SearchCard
+            key={item.web_url}
             abstract={item.abstract}
             snippet={item.snippet}
             web_url={item.web_url}

@@ -16,28 +16,30 @@ export const NewsCollection = () => {
 
   const [searchItems, setSearchItems] = useState<SearchItem[]>([]);
 
-  const [searchMode, setSearchMode] = useState(false);
-
-  const getNews = (category: string) => {
-    fetch(`/news/${category}`).then((data) =>
-      data.json().then((converted) => {
-        setSearchMode(false);
-        setNewsItems(converted);
-      })
-    );
-  };
-
   const performSearch = (term: string) => {
     fetch(`/search?searchTerm=${searchTerm}`).then((data) => {
       data.json().then((converted) => {
-        setSearchMode(true);
         setSearchItems(converted.docs);
       });
     });
   };
 
+  const getNews = (category: string) => {
+    fetch(`/news/${category}`).then((data) =>
+      data.json().then((converted) => {
+        setNewsItems(converted);
+      })
+    );
+  };
+  //anytime category/search term changes, perform search
   React.useEffect(() => {
-    getNews(category);
+    if (category === 'search') {
+      performSearch(searchTerm);
+    } else {
+      getNews(category);
+    }
+    //To limit API calls on search Term, do not watch searchTerm
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   return (
@@ -47,7 +49,6 @@ export const NewsCollection = () => {
         color='primary'
         aria-label='outlined primary button group'
       >
-        <Button>Latest News</Button>
         <Button onClick={(e) => setCategory(categories.popularToday)}>
           Popular Today
         </Button>
@@ -72,12 +73,12 @@ export const NewsCollection = () => {
           value='Submit'
           onClick={(e) => {
             e.preventDefault();
-            performSearch(searchTerm);
+            setCategory(categories.search);
           }}
         />
       </form>
       <div className='news-collection-container'>
-        {!searchMode ? (
+        {category !== 'search' ? (
           <CollectionList articlesArray={newsItems} />
         ) : (
           <SearchList searchItems={searchItems} />
