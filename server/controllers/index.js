@@ -25,7 +25,7 @@ module.exports = {
 
   search: {
     getSearch: (req, res) => {
-      models.search.getSearch(req.query.searchTerm, (err, results) => {
+      models.search.getSearch(req.query.searchTerm, req.query.page, (err, results) => {
         if (err) {
           console.log(err);
         } else {

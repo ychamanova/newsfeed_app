@@ -8,8 +8,10 @@ import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { Article, SearchItem } from '../../types';
 
-const fetchSearchResults = async (searchTerm: string) => {
-  const data = await fetch(`/search?searchTerm=${searchTerm}`);
+const fetchSearchResults = async (searchTerm: string, searchPage: number) => {
+  const data = await fetch(
+    `/search?searchTerm=${searchTerm}&page=${searchPage}`
+  );
   const converted = await data.json();
   return converted.docs;
 };
@@ -20,14 +22,7 @@ export const NewsCollection = () => {
   const [newsItems, setNewsItems] = useState<Article[]>([]);
   const [searchItems, setSearchItems] = useState<SearchItem[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const performSearch = async (term: string) => {
-    setCategory(categories.search);
-    setLoading(true);
-    const results = await fetchSearchResults(term);
-    setSearchItems(results);
-    setLoading(false);
-  };
+  const [searchPage, setSearchPage] = useState(1);
 
   const getNews = (category: string) => {
     setSearchTerm('');
@@ -39,10 +34,26 @@ export const NewsCollection = () => {
       })
     );
   };
+
+  const handleInitialSearch = async (term: string) => {
+    setCategory(categories.search);
+    setLoading(true);
+    const results = await fetchSearchResults(term, 1);
+    setSearchItems(results);
+    setLoading(false);
+    setSearchPage(2);
+  };
+
+  const handleGetMoreSearchResults = async () => {
+    const results = await fetchSearchResults(searchTerm, searchPage);
+    setSearchItems((prevItems) => prevItems.concat(results));
+    setSearchPage((prev) => prev + 1);
+  };
+
   //anytime category changes, perform search
   React.useEffect(() => {
     if (category === 'search') {
-      performSearch(searchTerm);
+      handleInitialSearch(searchTerm);
     } else {
       getNews(category);
     }
@@ -78,7 +89,8 @@ export const NewsCollection = () => {
           value='Submit'
           onClick={(e) => {
             e.preventDefault();
-            performSearch(searchTerm);
+            setSearchPage(1);
+            handleInitialSearch(searchTerm);
           }}
         />
       </form>
@@ -90,7 +102,10 @@ export const NewsCollection = () => {
         ) : category !== 'search' ? (
           <ArticleList articlesArray={newsItems} />
         ) : (
-          <SearchList searchItems={searchItems} />
+          <>
+            <SearchList searchItems={searchItems} />
+            <button onClick={handleGetMoreSearchResults}>Get more...</button>
+          </>
         )}
       </div>
     </main>

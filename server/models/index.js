@@ -32,8 +32,8 @@ module.exports = {
     },
   },
   search: {
-    getSearch: (term, cb) => {
-      axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${NYTimesKey}`, {
+    getSearch: (term, page, cb) => {
+      axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&page=${page}&api-key=${NYTimesKey}`, {
         headers: {
           Accept: 'application/json',
         },
