@@ -55,13 +55,27 @@ export const NewsCollection = () => {
     setSearchLoading(false);
   };
 
-  // const handleSortByWeeksOnTheList = (items) => {
+  const handleSortByRank = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const prev = [...bookItems];
+    prev.sort((a: Book, b: Book) => {
+      return a.rank - b.rank;
+    });
+    setBookItems(prev);
+    setLoading(false);
+  };
 
-  // }
-
-  // const handleSortByRank = (items) => {
-
-  // }
+  const handleSortByWeeksOnTheList = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const prev = [...bookItems];
+    prev.sort((a: Book, b: Book) => {
+      return a.weeks_on_list - b.weeks_on_list;
+    });
+    setBookItems(prev);
+    setLoading(false);
+  };
 
   //anytime category changes, perform search
   React.useEffect(() => {
@@ -141,10 +155,16 @@ export const NewsCollection = () => {
           </>
         ) : category === 'books' ? (
           <>
-            <button className='news-collection-sort-button'>
-              Sort By Days on the List
+            <button
+              className='news-collection-sort-button'
+              onClick={(e) => handleSortByWeeksOnTheList(e)}
+            >
+              Sort By Weeks on the List
             </button>
-            <button className='news-collection-sort-button'>
+            <button
+              className='news-collection-sort-button'
+              onClick={(e) => handleSortByRank(e)}
+            >
               Sort By Rank
             </button>
             <BookList booksArray={bookItems} />

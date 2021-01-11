@@ -25,6 +25,8 @@ export interface SearchItem {
 }
 
 export interface Book {
+  rank: number,
+  weeks_on_list: number;
   book_image: string;
   title: string;
   description: string;
