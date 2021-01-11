@@ -7,6 +7,7 @@ import { categories } from './categories';
 import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { Article, SearchItem } from '../../types';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 import { fetchSearchResults, fetchNews } from '../../utility/';
 
@@ -56,7 +57,7 @@ export const NewsCollection = () => {
   }, [category]);
 
   return (
-    <main role='main' className='NewsCollection'>
+    <main role='main' id='top' className='NewsCollection'>
       <ButtonGroup
         variant='text'
         color='primary'
@@ -103,12 +104,18 @@ export const NewsCollection = () => {
             {searchLoading ? (
               <CircularProgress color='inherit' />
             ) : (
-              <button
-                className='news-collection-load-more'
-                onClick={handleGetMoreSearchResults}
-              >
-                Load more search results...
-              </button>
+              <>
+                <button
+                  className='news-collection-load-more'
+                  onClick={handleGetMoreSearchResults}
+                >
+                  Load more search results...
+                </button>
+                <a className='news-collection-button-top' href='#top'>
+                  Go to Top of Page
+                  <ArrowUpwardIcon />
+                </a>
+              </>
             )}
           </>
         )}

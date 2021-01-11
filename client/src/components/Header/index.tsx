@@ -5,7 +5,9 @@ export const Header = () => {
   return (
     <header>
       <div className='header-top'>
-        <div className='header-logo'>NewsFeed</div>
+        <a href='/' className='header-logo'>
+          NewsFeed
+        </a>
       </div>
       <div className='header-slogan'>
         <div className='header-slogan-large'>The Best News</div>

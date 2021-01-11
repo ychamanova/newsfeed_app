@@ -7,9 +7,10 @@
 
 .news-collection-loader {
   margin: 10vmin;
+  padding: 5vmin;
 }
 
-.news-collection-submit, .news-collection-load-more {
+.news-collection-submit, .news-collection-load-more .news-collection-button-top {
   text-decoration: none;
   display: inline-block;
   background-color: rgb(255, 255, 255);
@@ -23,12 +24,11 @@
 }
 
 .news-collection-load-more {
-padding: 2vmin;
-
+  margin: 5vmin;
+  padding: 2vmin;
 }
 
 .news-collection-input {
   padding: 1vmin;
   margin: 2vmin;
-
 }

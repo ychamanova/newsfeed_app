@@ -38,6 +38,7 @@ export const SearchCard: React.FC<Props> = ({
         <AccordionDetails>
           <Typography>
             {lead_paragraph}
+            <br />
             <a href={web_url} target='_blank' rel='noreferrer'>
               Source: The New York Times. <OpenInNew />
             </a>

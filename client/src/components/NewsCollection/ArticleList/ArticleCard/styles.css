@@ -1,14 +1,15 @@
-.Card {
-  padding: 4vmin;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
 
 .article-card {
   height: 100%; 
   overflow: auto;
   padding: 4vmin;
   
+}
+
+.article-card-abstract {
+  text-align: left;
 }
 
 .article-card-readmore {

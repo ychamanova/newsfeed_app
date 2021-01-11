@@ -19,7 +19,7 @@ export const ArticleCard: React.FC<Props> = ({ title, url, abstract }) => {
     <Card className='article-card'>
       <h1 className='article-card-title'>{title}</h1>
       <br />
-      {abstract}
+      <div className='article-card-abstract'>{abstract}</div>
       <br />
       <Accordion className='article-card-readmore'>
         <AccordionSummary

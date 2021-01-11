@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Serif:wght@700&display=swap');
 
-
 .header-top {
   align-items: center;
   background-color: rgb(3, 5, 12);
@@ -26,4 +25,8 @@
 }
 .header-slogan-small {
   font-size: 3vmin;
+}
+
+a {
+  text-decoration: none;
 }
