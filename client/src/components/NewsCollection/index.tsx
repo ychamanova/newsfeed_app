@@ -8,13 +8,7 @@ import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { Article, SearchItem } from '../../types';
 
-const fetchSearchResults = async (searchTerm: string, searchPage: number) => {
-  const data = await fetch(
-    `/search?searchTerm=${searchTerm}&page=${searchPage}`
-  );
-  const converted = await data.json();
-  return converted.docs;
-};
+import { fetchSearchResults, fetchNews } from '../../utility/';
 
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,17 +16,15 @@ export const NewsCollection = () => {
   const [newsItems, setNewsItems] = useState<Article[]>([]);
   const [searchItems, setSearchItems] = useState<SearchItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [searchPage, setSearchPage] = useState(1);
 
-  const getNews = (category: string) => {
+  const getNews = async (category: string) => {
     setSearchTerm('');
     setLoading(true);
-    fetch(`/news/${category}`).then((data) =>
-      data.json().then((converted) => {
-        setNewsItems(converted);
-        setLoading(false);
-      })
-    );
+    const results = await fetchNews(category);
+    setNewsItems(results);
+    setLoading(false);
   };
 
   const handleInitialSearch = async (term: string) => {
@@ -45,9 +37,11 @@ export const NewsCollection = () => {
   };
 
   const handleGetMoreSearchResults = async () => {
+    setSearchLoading(true);
     const results = await fetchSearchResults(searchTerm, searchPage);
     setSearchItems((prevItems) => prevItems.concat(results));
     setSearchPage((prev) => prev + 1);
+    setSearchLoading(false);
   };
 
   //anytime category changes, perform search
@@ -57,7 +51,7 @@ export const NewsCollection = () => {
     } else {
       getNews(category);
     }
-    //To limit API calls on search Term, do not watch searchTerm
+    //Do not watch searchTerm to limit number of API requests
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
@@ -104,7 +98,13 @@ export const NewsCollection = () => {
         ) : (
           <>
             <SearchList searchItems={searchItems} />
-            <button onClick={handleGetMoreSearchResults}>Get more...</button>
+            {searchLoading ? (
+              <CircularProgress color='inherit' />
+            ) : (
+              <button onClick={handleGetMoreSearchResults}>
+                Load more search results...
+              </button>
+            )}
           </>
         )}
       </div>
