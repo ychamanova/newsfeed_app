@@ -2,12 +2,19 @@
   padding: 4vmin;
 }
 
-.article-card-abstract {
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+.article-card {
   height: 100%; 
   overflow: auto;
   padding: 4vmin;
+  
 }
 
 .article-card-readmore {
   margin: 5vmin;
+}
+
+.article-card-title {
+font-family: 'Philosopher', sans-serif;
 }

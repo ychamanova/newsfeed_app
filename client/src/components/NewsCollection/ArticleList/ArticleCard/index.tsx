@@ -16,8 +16,8 @@ interface Props {
 
 export const ArticleCard: React.FC<Props> = ({ title, url, abstract }) => {
   return (
-    <Card className='article-card-abstract'>
-      <h1>{title}</h1>
+    <Card className='article-card'>
+      <h1 className='article-card-title'>{title}</h1>
       <br />
       {abstract}
       <br />
@@ -32,7 +32,7 @@ export const ArticleCard: React.FC<Props> = ({ title, url, abstract }) => {
         <AccordionDetails>
           <Typography>
             <a href={url} target='_blank' rel='noreferrer'>
-              Source: New York Times. <OpenInNew />
+              Source: The New York Times. <OpenInNew />
             </a>
           </Typography>
         </AccordionDetails>

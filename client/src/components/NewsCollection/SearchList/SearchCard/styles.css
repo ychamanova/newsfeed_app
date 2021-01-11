@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
 .search-card-main {
   text-align: left;
   height: 100%; 
   overflow: auto;
   padding: 4vmin;
+
+}
+
+.search-card-snippet{
+  font-family: 'Philosopher', sans-serif;
+
 }
 
 .search-card-readmore {

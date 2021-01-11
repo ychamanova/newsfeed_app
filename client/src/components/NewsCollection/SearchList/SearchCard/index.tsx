@@ -23,7 +23,7 @@ export const SearchCard: React.FC<Props> = ({
 }) => {
   return (
     <Card className='search-card-main'>
-      <h1>{snippet}</h1>
+      <h2 className='search-card-snippet'>{snippet}</h2>
       <br />
       {abstract}
       <br />
@@ -39,7 +39,7 @@ export const SearchCard: React.FC<Props> = ({
           <Typography>
             {lead_paragraph}
             <a href={web_url} target='_blank' rel='noreferrer'>
-              Source: New York Times. <OpenInNew />
+              Source: The New York Times. <OpenInNew />
             </a>
           </Typography>
         </AccordionDetails>

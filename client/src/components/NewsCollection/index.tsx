@@ -73,12 +73,14 @@ export const NewsCollection = () => {
         <label>
           Search Articles
           <input
+            className='news-collection-input'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             type='text'
           />
         </label>
         <input
+          className='news-collection-submit'
           type='submit'
           value='Submit'
           onClick={(e) => {
@@ -101,7 +103,10 @@ export const NewsCollection = () => {
             {searchLoading ? (
               <CircularProgress color='inherit' />
             ) : (
-              <button onClick={handleGetMoreSearchResults}>
+              <button
+                className='news-collection-load-more'
+                onClick={handleGetMoreSearchResults}
+              >
                 Load more search results...
               </button>
             )}

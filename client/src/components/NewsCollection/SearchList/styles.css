@@ -1,12 +1,13 @@
 .search-list-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   margin-left: 5vmin;
 }
 
 .search-list-item {
+  margin: 1vmin;
   align-self: auto;
   width: 25%;
-  margin-bottom: 10vmin;
+  margin-bottom: 8vmin;
 }

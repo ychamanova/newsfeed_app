@@ -8,3 +8,27 @@
 .news-collection-loader {
   margin: 10vmin;
 }
+
+.news-collection-submit, .news-collection-load-more {
+  text-decoration: none;
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
+  cursor: pointer;
+  border: grey solid 1px;
+}
+
+.news-collection-submit {
+  padding: 1vmin;
+}
+
+.news-collection-load-more {
+padding: 2vmin;
+
+}
+
+.news-collection-input {
+  padding: 1vmin;
+  margin: 2vmin;
+
+}
