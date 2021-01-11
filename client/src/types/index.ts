@@ -23,3 +23,10 @@ export interface SearchItem {
   web_url: string;
   lead_paragraph: string;
 }
+
+export interface Book {
+  book_image: string;
+  title: string;
+  description: string;
+  author: string;
+}

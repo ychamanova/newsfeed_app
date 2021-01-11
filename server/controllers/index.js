@@ -34,4 +34,16 @@ module.exports = {
       });
     },
   },
+
+  books: {
+    getBooks: (req, res) => {
+      models.books.getBooks((err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(results);
+        }
+      });
+    },
+  },
 }

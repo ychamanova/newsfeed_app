@@ -46,4 +46,21 @@ module.exports = {
         });
     },
   },
+
+  books: {
+    getBooks: (cb) => {
+      axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction?api-key=${NYTimesKey}`, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response.data.results.books)
+          cb(null, response.data.results.books);
+        })
+        .catch((err) => {
+          cb(err);
+        });
+    },
+  },
 };

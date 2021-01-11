@@ -13,9 +13,9 @@ app.use(cookieParser());
 app.set('view engine', 'html');
 
 app.get('/search', controllers.search.getSearch);
-
 app.get('/news/today', controllers.news.getToday);
 app.get('/news/thisWeek', controllers.news.getWeek);
+app.get('/books', controllers.books.getBooks);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

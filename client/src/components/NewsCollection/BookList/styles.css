@@ -1,0 +1,13 @@
+.book-list-item {
+  margin: 3vmin;
+  background-color: rgb(237, 238, 238);
+  padding: 3vmin;
+}
+
+.book-list-image {
+  border-radius: 1vmin;
+  height: 400px;
+  width: auto;
+  box-shadow: 1vmin 1vmin black;
+  margin: 3vmin;
+}

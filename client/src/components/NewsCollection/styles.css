@@ -10,7 +10,10 @@
   padding: 5vmin;
 }
 
-.news-collection-submit, .news-collection-load-more .news-collection-button-top {
+.news-collection-submit,
+.news-collection-load-more,
+.news-collection-button-top, 
+.news-collection-sort-button {
   text-decoration: none;
   display: inline-block;
   background-color: rgb(255, 255, 255);
@@ -28,7 +31,7 @@
   padding: 2vmin;
 }
 
-.news-collection-input {
+.news-collection-input, .news-collection-sort-button {
   padding: 1vmin;
   margin: 2vmin;
 }

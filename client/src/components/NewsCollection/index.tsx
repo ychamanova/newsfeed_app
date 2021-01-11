@@ -6,16 +6,18 @@ import './styles.css';
 import { categories } from './categories';
 import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
-import { Article, SearchItem } from '../../types';
+import { BookList } from './BookList';
+import { Article, SearchItem, Book } from '../../types';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-import { fetchSearchResults, fetchNews } from '../../utility/';
+import { fetchSearchResults, fetchNews, fetchBooks } from '../../utility/';
 
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState(categories.popularToday);
   const [newsItems, setNewsItems] = useState<Article[]>([]);
   const [searchItems, setSearchItems] = useState<SearchItem[]>([]);
+  const [bookItems, setBookItems] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchPage, setSearchPage] = useState(1);
@@ -25,6 +27,14 @@ export const NewsCollection = () => {
     setLoading(true);
     const results = await fetchNews(category);
     setNewsItems(results);
+    setLoading(false);
+  };
+
+  const getBooks = async () => {
+    setSearchTerm('');
+    setLoading(true);
+    const results = await fetchBooks();
+    setBookItems(results);
     setLoading(false);
   };
 
@@ -45,10 +55,20 @@ export const NewsCollection = () => {
     setSearchLoading(false);
   };
 
+  // const handleSortByWeeksOnTheList = (items) => {
+
+  // }
+
+  // const handleSortByRank = (items) => {
+
+  // }
+
   //anytime category changes, perform search
   React.useEffect(() => {
     if (category === 'search') {
       handleInitialSearch(searchTerm);
+    } else if (category === 'books') {
+      getBooks();
     } else {
       getNews(category);
     }
@@ -68,6 +88,9 @@ export const NewsCollection = () => {
         </Button>
         <Button onClick={(e) => setCategory(categories.popularThisWeek)}>
           Popular in the Last Week
+        </Button>
+        <Button onClick={(e) => setCategory(categories.books)}>
+          New York Times Bestsellers
         </Button>
       </ButtonGroup>
       <form>
@@ -96,9 +119,7 @@ export const NewsCollection = () => {
           <div className='news-collection-loader'>
             <CircularProgress color='inherit' />
           </div>
-        ) : category !== 'search' ? (
-          <ArticleList articlesArray={newsItems} />
-        ) : (
+        ) : category === 'search' ? (
           <>
             <SearchList searchItems={searchItems} />
             {searchLoading ? (
@@ -112,12 +133,24 @@ export const NewsCollection = () => {
                   Load more search results...
                 </button>
                 <a className='news-collection-button-top' href='#top'>
-                  Go to Top of Page
+                  Go to the Top
                   <ArrowUpwardIcon />
                 </a>
               </>
             )}
           </>
+        ) : category === 'books' ? (
+          <>
+            <button className='news-collection-sort-button'>
+              Sort By Days on the List
+            </button>
+            <button className='news-collection-sort-button'>
+              Sort By Rank
+            </button>
+            <BookList booksArray={bookItems} />
+          </>
+        ) : (
+          <ArticleList articlesArray={newsItems} />
         )}
       </div>
     </main>
