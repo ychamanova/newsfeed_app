@@ -54,7 +54,6 @@ module.exports = {
                 },
             })
                 .then(function (response) {
-                console.log(response.data.results.books);
                 cb(null, response.data.results.books);
             })
                 .catch(function (err) {

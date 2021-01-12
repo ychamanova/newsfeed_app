@@ -1,10 +1,11 @@
 import {Request, Response} from 'express';
 const models = require('../models');
+import {Book, News, SearchResults} from '../types';
 
 module.exports = {
   news: {
     getToday: (req: Request, res: Response) => {
-      models.news.getToday((err, results) => {
+      models.news.getToday((err: Error | null, results?: News[]) => {
         if (err) {
           console.log(err);
         } else {
@@ -14,7 +15,7 @@ module.exports = {
     },
 
     getWeek: (req: Request, res: Response) => {
-      models.news.getWeek((err, results) => {
+      models.news.getWeek((err: Error | null, results?: News[]) => {
         if (err) {
           console.log(err);
         } else {
@@ -25,8 +26,8 @@ module.exports = {
   },
 
   search: {
-    getSearch: (req, res) => {
-      models.search.getSearch(req.query.searchTerm, req.query.page, (err, results) => {
+    getSearch: (req: Request, res: Response) => {
+      models.search.getSearch(req.query.searchTerm, req.query.page, (err: Error | null, results?: SearchResults[]) => {
         if (err) {
           console.log(err);
         } else {
@@ -37,8 +38,8 @@ module.exports = {
   },
 
   books: {
-    getBooks: (req, res) => {
-      models.books.getBooks((err, results) => {
+    getBooks: (req: Request, res:Response) => {
+      models.books.getBooks((err: Error | null, results?: Book[]) => {
         if (err) {
           console.log(err);
         } else {

@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
-var createError = require('http-errors');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const controllers = require('./controllers')
 
 var app = express();
@@ -23,7 +23,12 @@ app.use(function (req: Request, res:Response, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+interface customError extends Error {
+  status: number;
+  message: string;
+}
+
+app.use(function (err: customError, req: Request, res: Response) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
