@@ -11,3 +11,21 @@
   box-shadow: 1vmin 1vmin black;
   margin: 3vmin;
 }
+
+.book-list-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  list-style-type: none;
+  width: 50%;
+  overflow-wrap: break-word;
+  overflow: scroll;
+}
+
+.book-list-purchase-item {
+  padding: 2vmin;
+  margin: 2vmin;
+  background-color: rgb(238, 235, 235);
+}

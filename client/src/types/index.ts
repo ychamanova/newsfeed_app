@@ -35,4 +35,10 @@ export interface Book {
   description: string;
   author: string;
   primary_isbn10: number;
+  buy_links: BookBuyLinks[];
+}
+
+export interface BookBuyLinks {
+  name: string;
+  url: string;
 }
