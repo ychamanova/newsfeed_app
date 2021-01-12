@@ -4,12 +4,12 @@ import { categories } from './categories';
 import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { BookList } from './BookList';
+import { JumpToTopButton } from './JumpToTopButton';
 import { Article, SearchItem, Book } from '../../types';
 import { fetchSearchResults, fetchNews, fetchBooks } from '../../utility/';
 
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const NewsCollection = () => {
@@ -148,10 +148,7 @@ export const NewsCollection = () => {
                 >
                   Load more search results...
                 </button>
-                <a className='news-collection-button-top' href='#top'>
-                  Go to the Top
-                  <ArrowUpwardIcon />
-                </a>
+                <JumpToTopButton show={true} customContent={'Go to top'} />
               </>
             )}
           </>
@@ -170,6 +167,7 @@ export const NewsCollection = () => {
               Sort By Rank
             </button>
             <BookList booksArray={bookItems} />
+            <JumpToTopButton show={true} customContent={'Go to top'} />
           </>
         ) : (
           <ArticleList articlesArray={newsItems} />

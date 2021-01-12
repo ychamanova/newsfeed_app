@@ -17,9 +17,9 @@
   text-decoration: none;
   display: inline-block;
   background-color: rgb(255, 255, 255);
-  border-radius: 5%;
   cursor: pointer;
   border: grey solid 1px;
+  padding: 1vmin;
 }
 
 .news-collection-submit {
@@ -34,4 +34,9 @@
 .news-collection-input, .news-collection-sort-button {
   padding: 1vmin;
   margin: 2vmin;
+}
+.news-collection-submit:hover,
+.news-collection-load-more:hover,
+.news-collection-sort-button:hover {
+  background-color: rgba(170, 206, 250, 0.872);
 }
