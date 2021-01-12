@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import './styles.css';
 import { categories } from './categories';
 import { ArticleList } from './ArticleList';
 import { SearchList } from './SearchList';
 import { BookList } from './BookList';
 import { Article, SearchItem, Book } from '../../types';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-
 import { fetchSearchResults, fetchNews, fetchBooks } from '../../utility/';
+
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const NewsCollection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -55,6 +55,7 @@ export const NewsCollection = () => {
     setSearchLoading(false);
   };
 
+  //sort books by rank
   const handleSortByRank = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -66,6 +67,7 @@ export const NewsCollection = () => {
     setLoading(false);
   };
 
+  //sort books by weeks on bestseller list
   const handleSortByWeeksOnTheList = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -77,7 +79,7 @@ export const NewsCollection = () => {
     setLoading(false);
   };
 
-  //anytime category changes, perform search
+  //when page loads, and anytime category changes, perform search
   React.useEffect(() => {
     if (category === 'search') {
       handleInitialSearch(searchTerm);
@@ -87,7 +89,7 @@ export const NewsCollection = () => {
       getNews(category);
     }
     //Do not watch searchTerm to limit number of API requests
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [category]);
 
   return (

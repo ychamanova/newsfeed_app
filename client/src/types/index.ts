@@ -1,4 +1,5 @@
 export interface Article {
+  id: number;
   url: string;
   title: string;
   abstract: string;
@@ -18,6 +19,8 @@ export interface MediaMeta {
 }
 
 export interface SearchItem {
+  _id: string;
+  headline: {main: string};
   abstract: string;
   snippet: string;
   web_url: string;
@@ -31,4 +34,5 @@ export interface Book {
   title: string;
   description: string;
   author: string;
+  primary_isbn10: number;
 }

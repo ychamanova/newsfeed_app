@@ -9,21 +9,21 @@ import { OpenInNew } from '@material-ui/icons';
 import './styles.css';
 
 interface Props {
+  headline: string;
   abstract: string;
-  snippet: string;
   web_url: string;
   lead_paragraph: string;
 }
 
 export const SearchCard: React.FC<Props> = ({
+  headline,
   abstract,
-  snippet,
   web_url,
   lead_paragraph,
 }) => {
   return (
     <Card className='search-card-main'>
-      <h2 className='search-card-snippet'>{snippet}</h2>
+      <h2 className='search-card-snippet'>{headline}</h2>
       <br />
       {abstract}
       <br />

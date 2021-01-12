@@ -11,7 +11,7 @@ export const BookList: React.FC<Props> = ({ booksArray }) => {
   return (
     <div className='book-list-container'>
       {booksArray.map((b) => (
-        <div className='book-list-item'>
+        <div className='book-list-item' key={b.primary_isbn10}>
           <h2>{b.title}</h2>
           <div>{b.author}</div>
           <img

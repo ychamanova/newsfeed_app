@@ -12,13 +12,8 @@ export const ArticleList: React.FC<Props> = ({ articlesArray }) => {
   return (
     <div className='article-list-container'>
       {articlesArray.map((a) => (
-        <article className='article-list-item'>
-          <ArticleCard
-            key={a.url}
-            title={a.title}
-            url={a.url}
-            abstract={a.abstract}
-          />
+        <article key={a.id} className='article-list-item'>
+          <ArticleCard title={a.title} url={a.url} abstract={a.abstract} />
         </article>
       ))}
     </div>
