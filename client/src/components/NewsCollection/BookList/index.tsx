@@ -33,7 +33,10 @@ export const BookList: React.FC<Props> = ({ booksArray }) => {
             src={b.book_image}
           />
           <div>{b.description} </div>
-          <button type='button' onClick={() => handleOpen(index)}>
+          <button
+            className={'book-list-modal-button'}
+            onClick={() => handleOpen(index)}
+          >
             Purchase Options
           </button>
 
@@ -41,21 +44,19 @@ export const BookList: React.FC<Props> = ({ booksArray }) => {
             <Modal
               open={open}
               onClose={handleClose}
-              aria-labelledby='simple-modal-title'
-              aria-describedby='simple-modal-description'
               BackdropProps={{
                 style: { backgroundColor: 'rgba(52, 52, 52, 0.1)' },
               }}
             >
               <ul className='book-list-modal'>
+                {booksArray[activeIdx].title}
                 {booksArray[activeIdx].buy_links.map((e) => (
                   <li className='book-list-purchase-item' key={e.url}>
                     {e.name}
                     <br />
-                    Purchase link:
                     <br />
                     <a href={e.url} target='_blank' rel='noreferrer'>
-                      {e.url}
+                      Purchase link
                     </a>
                   </li>
                 ))}

@@ -23,20 +23,20 @@
 }
 
 .news-collection-submit {
-  padding: 1vmin;
+  padding: 1em;
 }
 
 .news-collection-load-more {
-  margin: 5vmin;
-  padding: 2vmin;
+  margin: 5em;
+  padding: 2em;
 }
 
 .news-collection-input, .news-collection-sort-button {
-  padding: 1vmin;
-  margin: 2vmin;
+  padding: 1em;
+  margin: 2em;
 }
 .news-collection-submit:hover,
 .news-collection-load-more:hover,
 .news-collection-sort-button:hover {
-  background-color: rgba(170, 206, 250, 0.872);
+background-color: rgba(170, 206, 250, 0.872);
 }

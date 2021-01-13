@@ -2,10 +2,8 @@
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  padding: 1.2vmin;
+  padding: 2.7vmin;
+  padding-top: 2.5vmin;
+  padding-bottom: 3.6vmin;
   margin: 0;
-}
-
-.jump-to-top-button:hover {
-  background-color: rgba(170, 206, 250, 0.872);
 }

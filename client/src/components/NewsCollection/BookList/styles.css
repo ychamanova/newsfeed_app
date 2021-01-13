@@ -22,10 +22,17 @@
   width: 50%;
   overflow-wrap: break-word;
   overflow: scroll;
+  padding: 1vmin;
+  text-align: center;
 }
 
 .book-list-purchase-item {
   padding: 2vmin;
   margin: 2vmin;
   background-color: rgb(238, 235, 235);
+}
+
+.book-list-modal-button {
+  margin: 1vmin;
+  padding: 2vmin;
 }
