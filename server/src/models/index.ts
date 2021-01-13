@@ -1,10 +1,10 @@
 const axios = require('axios');
 const { NYTimesKey } = require('../keys');
-import {NewYorkTimesBookListApiResponse, NewYorkTimesNewsApiResponse, NewYorkTimesSearchApiResponse, News, SearchResults, Book} from '../types';
+import {NewYorkTimesBookListApiResponse, NewYorkTimesNewsApiResponse, NewYorkTimesSearchApiResponse, Article, SearchItem, Book} from '../types';
 
 module.exports = {
   news: {
-    getToday: (cb:(err: Error | null, response?: News[]) => void) => {
+    getToday: (cb:(err: Error | null, response?: Article[]) => void) => {
       axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${NYTimesKey}`, {
         headers: {
           Accept: 'application/json',
@@ -18,7 +18,7 @@ module.exports = {
         });
     },
 
-    getWeek: (cb:(err: Error | null, response?: News[]) => void) => {
+    getWeek: (cb:(err: Error | null, response?: Article[]) => void) => {
       axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${NYTimesKey}`, {
         headers: {
           Accept: 'application/json',
@@ -33,7 +33,7 @@ module.exports = {
     },
   },
   search: {
-    getSearch: (term: string, page: string, cb:(err: Error | null, response?: SearchResults[]) => void) => {
+    getSearch: (term: string, page: string, cb:(err: Error | null, response?: SearchItem[]) => void) => {
       axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&page=${page}&api-key=${NYTimesKey}`, {
         headers: {
           Accept: 'application/json',
