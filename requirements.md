@@ -25,24 +25,27 @@ $ npm start
 ## <App/ >
 - Renders the Header, NewsCollection (Main View Component) and the Footer
 
-### <NewsCollection />
+## <NewsCollection />
 - It is the main View Component for the application
 - Presents the right view (News Articles, Search Results for the News, or Best-seller Books), depending on user interaction
 - Passes down data from the API to the children components (ArticleList, SearchList and BookList)
 - Contains search field to search for articles
-![Default View](./screenshots/main-view.png)
-![Transition Between Views](./screenshots/main-view.png)
- ### <ArticleList />
+![Default View](https://github.com/ychamanova/newsfeed_app/blob/main/screenshots/main-view.png)
+
+ ## <ArticleList />
 - Renders article cards for the most popular news Today or for the Week, depending on user selection
 - The default view is the most popular articles for the day
-![Expandable Read More Section](./screenshots/news-read-more.png)
- ### <SearchList />
+
+![Expandable Read More Section](https://github.com/ychamanova/newsfeed_app/blob/main/screenshots/news-read-more.png)
+
+ ## <SearchList />
 - Renders search results from the form in the NewsCollection component
 - Contains a button to load more results for the same search term
 - Contains Go To Top Component
 ![Searc View Top](./screenshots/search-view-top.png)
 ![Search View Bottom](./screenshots/search-view-bottom.png)
- ### <BookList />
+
+ ## <BookList />
 - Renders the hardcovers currently on The New York Times Bestseller List
 - Has the option to sort the books based on time on bestseller list or the popularity rank
 - Contains a button that presents the user a modal with the links to purchase the selected book from multiple sources
@@ -53,7 +56,6 @@ $ npm start
 # Back End Structure
 - Controller handles the Request and Response objects, passed down the data from Requests to the correct Models, gets the data from Models and responds back to the client
 - Models fetch the data from the New York Times API, and pass the fetched information back to the controller
-
 
 
 
