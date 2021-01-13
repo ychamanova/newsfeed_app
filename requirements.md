@@ -46,19 +46,19 @@ ___________________________
 ___________________________
 - Contains a button to load more results for the same search term
 - Contains Go To Top Component
+____________________________
 ![Search View Bottom](./screenshots/search-view-bottom.png)
 ____________________________
  ### Book List Component
 - Renders the hardcovers currently on The New York Times Bestseller List
-_______________________________
-![Books Modal](./screenshots/books-modal.png)
-________________________________
 - Has the option to sort the books based on time on bestseller list or the popularity rank
 ______________________________
 ![Books organized by weeks on the list](./screenshots/books-view-by-week.png)
 ______________________________
-- Contains a button that presents the user a modal with the links to purchase the selected book 
-from multiple sources
+- Contains a button that presents the user a modal with the links to purchase 
+the selected book from multiple sources
+__________________________________
+![Books Modal](./screenshots/books-modal.png)
 
 # Back End Structure
 - The server accepts the following routes:
