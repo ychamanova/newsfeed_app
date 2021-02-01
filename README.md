@@ -1,5 +1,3 @@
-# Submission Requirements
-## Project Description
 # NewsFeed App Overview
 NewsFeed is an application that uses the New York Times API to show the most popular news for the current day, the current week, and NYT current Bestsellers list. It is written in TypeScript and React library on the front end, and Node.js and Express server on the back-end. The application uses the MVC pattern. The view is built with React and TypeScript. Utility functions are abstracted away to utilities folder. The server consists of Controller and the Models folders. This creates separation of concerns and is scalable. 
 
