@@ -81,17 +81,18 @@ export const NewsCollection = () => {
 
   //when page loads, and anytime category changes, perform search
   React.useEffect(() => {
-    if (category === 'search') {
-      handleInitialSearch(searchTerm);
-    } else if (category === 'books') {
+    // if (category === 'search') {
+    //   handleInitialSearch(searchTerm);
+    // } else
+    if (category === 'books') {
       getBooks();
-    } else {
+    }
+    if (category === 'today' || category === 'thisWeek') {
       getNews(category);
     }
     //Do not watch searchTerm to limit number of API requests
-    // eslint-disable-next-line
   }, [category]);
-
+  // eslint-disable-next-line
   return (
     <main role='main' id='top' className='NewsCollection'>
       <ButtonGroup
